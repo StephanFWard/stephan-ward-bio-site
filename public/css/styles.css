@@ -676,6 +676,14 @@ body.js-anim .anim.revealed { opacity: 1; transform: none; }
 
 /* ---------- Live Production App page ---------- */
 .hero-app { padding: 72px 0 80px; }
+.hero-app .container.center {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+}
+.hero-app .container.center > * { margin-left: auto; margin-right: auto; }
+.hero-app .container.center .hero-tagline { width: fit-content; max-width: 100%; }
+.hero-app .container.center .app-cta { width: fit-content; max-width: 100%; }
+.hero-app .container.center .app-url-line { width: fit-content; max-width: 100%; }
 .live-dot {
   display: inline-block; width: 10px; height: 10px; border-radius: 50%;
   background: #34d399; margin-right: 8px; vertical-align: middle;
