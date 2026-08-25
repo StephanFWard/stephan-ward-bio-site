@@ -1,0 +1,54 @@
+<%- include('partials/head') %>
+
+<%- include('partials/nav') %>
+
+<section class="page-head">
+  <div class="container">
+    <p class="eyebrow">Résumé</p>
+    <h1>Stephan Ward — Résumé</h1>
+    <p class="section-sub">Strategic Planning | Enterprise Communications | Team Leadership | Technical Support Development | Information System Security | Rapid Application Development &amp; Agile Methodologies | Database Architecture</p>
+  </div>
+</section>
+
+<section class="section resume-page">
+  <div class="container">
+    <h2 class="report-h3">Technical proficiency</h2>
+    <div class="skills-cards">
+      <div class="card skill-card"><h3>Platforms</h3><p><%= skills.platforms %></p></div>
+      <div class="card skill-card"><h3>Software &amp; Tools</h3><p><%= skills.software %></p></div>
+      <div class="card skill-card"><h3>Full-Stack &amp; Languages</h3><p><%= skills.fullStack %></p></div>
+    </div>
+
+    <h2 class="report-h3">Professional experience</h2>
+    <% experience.forEach(function (job) { %>
+      <article class="card job-card">
+        <header class="job-head">
+          <div>
+            <h3><%= job.role %> · <%= job.org %></h3>
+            <p class="muted"><%= job.location %></p>
+          </div>
+          <span class="pill pill-blue"><%= job.period %></span>
+        </header>
+        <ul class="bullets">
+          <% job.bullets.forEach(function (b) { %><li><%= b %></li><% }); %>
+        </ul>
+      </article>
+    <% }); %>
+
+    <h2 class="report-h3">Education</h2>
+    <div class="skills-cards">
+      <% education.forEach(function (e) { %>
+        <div class="card skill-card"><h3><%= e.school %></h3><p><strong><%= e.degree %></strong> · <%= e.year %></p></div>
+      <% }); %>
+    </div>
+
+    <h2 class="report-h3">Certifications</h2>
+    <ul class="cert-inline">
+      <% certifications.forEach(function (c) { %><li><span class="pill pill-blue"><%= c.name %></span> <span class="muted"><%= c.issuer %></span></li><% }); %>
+    </ul>
+
+    <p class="fineprint center">Prefer a PDF? Request one via the <a href="/contact">contact page →</a></p>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

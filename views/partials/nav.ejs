@@ -1,0 +1,21 @@
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="Stephan Ward — home">
+      <span class="brand-mark">SW</span>
+      <span class="brand-name">Stephan Ward<span class="brand-dot">.</span></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <nav class="site-nav" id="siteNav" aria-label="Primary">
+      <a href="/" class="<%= currentPath === '/' ? 'active' : '' %>">Home</a>
+      <a href="/resume" class="<%= currentPath === '/resume' ? 'active' : '' %>">Résumé</a>
+      <a href="/portfolio" class="<%= currentPath === '/portfolio' ? 'active' : '' %>">Portfolio</a>
+      <a href="/live-app" class="<%= currentPath === '/live-app' ? 'active' : '' %> nav-link-live">Live App<span class="live-badge" aria-hidden="true"></span></a>
+      <a href="/classes" class="<%= currentPath === '/classes' ? 'active' : '' %>">IT Classes</a>
+      <a href="/credentials" class="<%= currentPath === '/credentials' ? 'active' : '' %>">Download Links</a>
+      <a href="/contact" class="<%= currentPath === '/contact' ? 'active' : '' %>">Contact</a>
+      <a href="https://www.linkedin.com/in/stephan-ward-28aa71289" target="_blank" rel="noopener" class="nav-link-ext">LinkedIn ↗</a>
+    </nav>
+  </div>
+</header>
+<main id="main">

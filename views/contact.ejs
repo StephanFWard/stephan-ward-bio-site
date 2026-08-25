@@ -1,0 +1,50 @@
+<%- include('partials/head') %>
+
+<%- include('partials/nav') %>
+
+<section class="page-head">
+  <div class="container">
+    <h1>Contact</h1>
+    <p class="section-sub">Questions about the analyzer, partnerships, or enterprise use — we read everything.</p>
+  </div>
+</section>
+
+<section class="section contact-section">
+  <div class="container contact-grid">
+    <div class="card contact-info">
+      <h2>Direct</h2>
+      <p>Email: <a href="mailto:<%= CONTACT_EMAIL %>"><%= CONTACT_EMAIL %></a></p>
+      <p>Typical response time: 1–2 business days.</p>
+      <h2>Quick answers</h2>
+      <ul>
+        <li>Billing issues → include your account email and we'll sort it fast.</li>
+        <li>Enterprise / university licensing → put “Enterprise” in the subject line.</li>
+        <li>Press or speaking → put “Press” in the subject line.</li>
+      </ul>
+    </div>
+    <div class="card contact-form-card">
+      <% if (sent) { %>
+        <div class="empty-state">
+          <div class="feature-icon">✅</div>
+          <h2>Thank you for your response. ✨</h2>
+          <p>Your message was received — we'll reply to the email you provided.</p>
+          <a href="/" class="btn btn-outline">← Back home</a>
+        </div>
+      <% } else { %>
+        <% if (typeof error !== 'undefined' && error) { %><p class="form-error" role="alert"><%= error %></p><% } %>
+        <h2>Send a message</h2>
+        <form method="post" action="/contact">
+          <label for="name">Name (required)</label>
+          <input type="text" id="name" name="name" required maxlength="120" value="<%= typeof form !== 'undefined' && form ? form.name || '' : '' %>">
+          <label for="email">Email (required)</label>
+          <input type="email" id="email" name="email" required maxlength="160" value="<%= typeof form !== 'undefined' && form ? form.email || '' : '' %>">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required maxlength="4000"><%= typeof form !== 'undefined' && form ? form.message || '' : '' %></textarea>
+          <button type="submit" class="btn btn-primary btn-lg btn-block">Contact Me</button>
+        </form>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

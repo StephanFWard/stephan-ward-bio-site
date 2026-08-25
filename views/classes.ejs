@@ -1,0 +1,35 @@
+<%- include('partials/head') %>
+
+<%- include('partials/nav') %>
+
+<section class="page-head">
+  <div class="container">
+    <p class="breadcrumb"><a href="/">Home</a> › IT Classes</p>
+    <h1>IT Classes</h1>
+    <p class="section-sub">Completed coursework from Western Governors University — B.S. Software Development and M.Sc. Information Technology Management.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <% courses.forEach(function (group) { %>
+      <h2 class="report-h3"><%= group.term %></h2>
+      <div class="course-grid">
+        <% group.items.forEach(function (c) { %>
+          <div class="card course-card">
+            <span class="course-check">✓</span>
+            <span><%= c %></span>
+          </div>
+        <% }); %>
+      </div>
+    <% }); %>
+
+    <div class="cta-band-inline card center">
+      <h2>Want the transcripts or certificates?</h2>
+      <p>Degrees and certifications are available on the Download Links page.</p>
+      <a href="/credentials" class="btn btn-primary btn-lg">View credentials</a>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,55 @@
+<%- include('partials/head') %>
+<%- include('partials/nav') %>
+
+<section class="hero hero-app">
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-3" aria-hidden="true"></div>
+  <div class="container center">
+    <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Live Production App</p>
+    <h1>BestBullion</h1>
+    <p class="hero-sub hero-tagline"><%= app.tagline %></p>
+    <div class="hero-cta app-cta">
+      <a href="<%= app.url %>" target="_blank" rel="noopener" class="btn btn-light btn-lg">Visit the live app ↗</a>
+      <a href="#features" class="btn btn-outline-light btn-lg">What it does</a>
+    </div>
+    <p class="app-url-line">bullionstore.onrender.com · deployed on Render · running in production now</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container app-intro">
+    <h2 class="section-title">What it does</h2>
+    <p class="app-desc"><%= app.description %></p>
+    <div class="app-links">
+      <% app.links.forEach(function (l) { %>
+        <a href="<%= l.url %>" target="_blank" rel="noopener" class="chip-link"><%= l.label %> ↗</a>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="features">
+  <div class="container">
+    <h2 class="section-title">Key features in production</h2>
+    <p class="section-sub">Everything below is live and working at bullionstore.onrender.com right now.</p>
+    <div class="feature-grid">
+      <% app.features.forEach(function (f) { %>
+        <div class="card feature app-feature">
+          <div class="feature-icon"><%= f.icon %></div>
+          <h3><%= f.title %></h3>
+          <p><%= f.text %></p>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container center">
+    <h2>Try it live — no signup to browse</h2>
+    <p>Real spot prices, real catalog, real checkout. Open BestBullion and explore the store.</p>
+    <a href="<%= app.url %>" target="_blank" rel="noopener" class="btn btn-light btn-lg">Open bullionstore.onrender.com ↗</a>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

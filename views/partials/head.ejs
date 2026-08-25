@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= typeof seo.title !== 'undefined' ? seo.title : 'Stephan Ward — Professional Bio' %></title>
+  <meta name="description" content="<%= typeof seo.description !== 'undefined' ? seo.description : 'Professional bio of Stephan Ward — biochemist turned IT professional.' %>">
+  <% if (typeof seo.noIndex !== 'undefined' && seo.noIndex) { %><meta name="robots" content="noindex, nofollow"><% } %>
+  <link rel="canonical" href="<%= siteUrl %><%= typeof seo.canonical !== 'undefined' ? seo.canonical : '' %>">
+  <!-- Open Graph -->
+  <meta property="og:type" content="<%= typeof seo.ogType !== 'undefined' ? seo.ogType : 'website' %>">
+  <meta property="og:site_name" content="Stephan Ward — Professional Bio">
+  <meta property="og:title" content="<%= typeof seo.title !== 'undefined' ? seo.title : 'Stephan Ward — Professional Bio' %>">
+  <meta property="og:description" content="<%= typeof seo.description !== 'undefined' ? seo.description : '' %>">
+  <meta property="og:url" content="<%= siteUrl %><%= typeof seo.canonical !== 'undefined' ? seo.canonical : '' %>">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="<%= typeof seo.title !== 'undefined' ? seo.title : 'Stephan Ward — Professional Bio' %>">
+  <meta name="twitter:description" content="<%= typeof seo.description !== 'undefined' ? seo.description : '' %>">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <% if (typeof jsonld !== 'undefined' && Array.isArray(jsonld)) { jsonld.forEach(function (obj) { %>
+  <script type="application/ld+json"><%- JSON.stringify(obj) %></script>
+  <% }); } %>
+</head>
+<body>

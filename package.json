@@ -1,0 +1,19 @@
+{
+  "name": "stephan-ward-bio-site",
+  "version": "1.0.0",
+  "description": "Professional bio site for Stephan Ward — modern rebuild of stephanfward.wordpress.com",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

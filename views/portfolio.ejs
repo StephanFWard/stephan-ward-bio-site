@@ -1,0 +1,34 @@
+<%- include('partials/head') %>
+
+<%- include('partials/nav') %>
+
+<section class="page-head">
+  <div class="container">
+    <p class="eyebrow">Portfolio</p>
+    <h1>Projects &amp; builds</h1>
+    <p class="section-sub">From nonprofit AI governance to marketplace apps and enterprise Rails platforms.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="feature-grid portfolio-grid">
+      <% projects.forEach(function (p, i) { %>
+        <article class="card project-card project-card--<%= i %>">
+          <div class="project-top">
+            <span class="project-icon"><%= p.icon %></span>
+            <span class="pill pill-blue"><%= p.period %></span>
+          </div>
+          <h3><%= p.name %></h3>
+          <p class="muted project-kind"><%= p.kind %></p>
+          <p><%= p.summary %></p>
+          <div class="kw-cloud">
+            <% p.highlights.forEach(function (h) { %><span class="pill pill-green"><%= h %></span><% }); %>
+          </div>
+        </article>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
