@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const router = express.Router();
 const db = require('../lib/db');
 const resumeData = require('../lib/resume-data');
@@ -123,6 +124,15 @@ router.post('/contact', (req, res) => {
   }
   db.saveContact({ name, email, message });
   res.render('contact', { seo: SEO.contact, sent: true });
+});
+
+router.get('/resume-document', (req, res) => {
+  const file = path.join(__dirname, '..', 'public', 'files', 'stephanwardresume.docx');
+  res.download(file, 'stephanwardresume.docx', (err) => {
+    if (err && !res.headersSent) {
+      res.status(404).send('Résumé document not found.');
+    }
+  });
 });
 
 module.exports = router;

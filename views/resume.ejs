@@ -12,6 +12,19 @@
 
 <section class="section resume-page">
   <div class="container">
+    <div class="card resume-doc-card">
+      <div class="resume-doc-copy">
+        <div class="feature-icon">📄</div>
+        <h2>Résumé — Word Document</h2>
+        <p>The full résumé as a Microsoft Word document. View it online or download a copy directly from the production server.</p>
+      </div>
+      <div class="resume-doc-actions">
+        <a href="https://view.officeapps.live.com/op/view.aspx?src=<%= encodeURIComponent(siteUrl + '/files/stephanwardresume.docx') %>" target="_blank" rel="noopener" class="btn btn-primary">View document ↗</a>
+        <a href="/resume-document" class="btn btn-outline">Download .docx</a>
+      </div>
+      <p class="fineprint resume-doc-meta"><%= siteUrl %>/files/stephanwardresume.docx · Word · 30 KB</p>
+    </div>
+
     <h2 class="report-h3">Technical proficiency</h2>
     <div class="skills-cards">
       <div class="card skill-card"><h3>Platforms</h3><p><%= skills.platforms %></p></div>
@@ -47,7 +60,7 @@
       <% certifications.forEach(function (c) { %><li><span class="pill pill-blue"><%= c.name %></span> <span class="muted"><%= c.issuer %></span></li><% }); %>
     </ul>
 
-    <p class="fineprint center">Prefer a PDF? Request one via the <a href="/contact">contact page →</a></p>
+    <p class="fineprint center">The same content above is also available as a <a href="/resume-document">downloadable Word document</a>.</p>
   </div>
 </section>
 

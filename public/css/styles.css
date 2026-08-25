@@ -721,3 +721,15 @@ body.js-anim .anim.revealed { opacity: 1; transform: none; }
 .nav-card--5 .feature-icon { background: linear-gradient(135deg, #d1fae5, #cffafe); }
 .nav-card--5::before { background: linear-gradient(90deg, #10b981, #38bdf8); }
 
+/* ---------- Résumé document card ---------- */
+.resume-doc-card {
+  display: flex; flex-direction: column; gap: 18px;
+  margin-bottom: 30px; padding: 28px;
+  background: linear-gradient(135deg, #fff, #faf7ff);
+  border-top: 5px solid; border-image: var(--grad-rainbow) 1;
+}
+.resume-doc-copy .feature-icon { margin-bottom: 10px; }
+.resume-doc-copy h2 { margin-bottom: 6px; }
+.resume-doc-copy p { color: var(--muted); margin: 0; }
+.resume-doc-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
+.resume-doc-meta { margin: 12px 0 0; }
