@@ -692,7 +692,7 @@ body.js-anim .anim.revealed { opacity: 1; transform: none; }
 .app-cta { justify-content: center; }
 .app-url-line { margin-top: 22px; font-size: .85rem; color: #b9a8e8; letter-spacing: .04em; }
 .app-intro { max-width: 780px; margin: 0 auto; text-align: center; }
-.app-desc { font-size: 1.08rem; line-height: 1.75; }
+.app-desc { font-size: 1.08rem; line-height: 1.75; text-align: justify; }
 .app-links { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 26px; }
 .chip-link {
   border: 1.5px solid var(--violet); color: var(--blue-dark); background: #fff;
@@ -707,6 +707,11 @@ body.js-anim .anim.revealed { opacity: 1; transform: none; }
 .app-feature:nth-child(4n+2) .feature-icon { background: linear-gradient(135deg, #ccfbf1, #dbeafe); }
 .app-feature:nth-child(4n+3) .feature-icon { background: linear-gradient(135deg, #fce7f3, #f3e8ff); }
 .app-feature:nth-child(4n+4) .feature-icon { background: linear-gradient(135deg, #cffafe, #ede9fe); }
+.app-feature { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.app-feature .feature-icon { margin: 0 0 14px; }
+.app-feature h3 { margin-bottom: 8px; }
+.feature-grid-center { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+.feature-grid-center > .card { flex: 0 1 300px; }
 
 /* Nav "Live App" item with pulsing badge */
 .nav-link-live { display: inline-flex; align-items: center; gap: 7px; }
