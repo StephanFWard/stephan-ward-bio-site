@@ -98,7 +98,6 @@ p { margin: 0 0 1em; }
   color: #fff; font-weight: 800; font-size: 1.2rem; display: grid; place-items: center;
 }
 .brand-name { font-weight: 800; font-size: 1.25rem; color: var(--navy); letter-spacing: -.02em; }
-.brand-dot { color: var(--blue); }
 .nav-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--navy); padding: 6px 10px; }
 .site-nav { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
 .site-nav > a { color: var(--ink); font-weight: 600; font-size: .93rem; padding: 9px 12px; border-radius: 8px; }
@@ -457,9 +456,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   background: conic-gradient(from 210deg, #7c3aed, #d946ef, #f43f5e, #f59e0b, #14b8a6, #38bdf8, #7c3aed);
   color: #fff; font-size: .95rem; letter-spacing: -.02em;
   box-shadow: 0 4px 14px rgba(168,85,247,.4);
-}
-.brand-dot {
-  background: var(--grad-rainbow); -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .site-nav > a.active {
   background: linear-gradient(135deg, rgba(124,58,237,.12), rgba(236,72,153,.12));
