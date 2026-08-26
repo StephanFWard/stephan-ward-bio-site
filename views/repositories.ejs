@@ -1,0 +1,99 @@
+<%- include('partials/head') %>
+<%- include('partials/nav') %>
+
+<section class="page-head">
+  <div class="container">
+    <p class="breadcrumb"><a href="/">Home</a> › Repositories</p>
+    <h1>Repositories &amp; Code</h1>
+    <p class="section-sub">
+      <%= stats.ownCount %> original repositories (plus <%= stats.forkCount %> studied forks) on GitHub —
+      grouped by the language each project was built with, so a recruiter can see exactly which tool was used where, and why.
+    </p>
+    <div class="hero-cta compare-cta-top">
+      <a href="<%= stats.profileUrl %>" target="_blank" rel="noopener" class="btn btn-primary">View GitHub profile ↗</a>
+      <a href="#repo-cards" class="btn btn-outline">Browse repositories</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="report-h3">Languages at a glance</h2>
+    <p class="section-sub">Primary language across the <%= stats.ownCount %> original repositories.</p>
+    <div class="card pie-card">
+      <div
+        class="pie"
+        style="background: conic-gradient(<%= stats.gradient %>)"
+        role="img"
+        aria-label="Pie chart of primary programming languages across original repositories"
+      >
+      </div>
+      <ul class="pie-legend">
+        <% stats.languages.forEach(function (l) { %>
+          <li>
+            <span class="lang-dot" style="background: <%= l.color %>"></span>
+            <span><strong><%= l.name %></strong> — <%= l.count %> <%= l.count === 1 ? 'repo' : 'repos' %> · <%= l.pct %>%</span>
+          </li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <h2 class="report-h3">Software expertise, in plain terms</h2>
+    <p class="section-sub">What each language was used to build — and why it was the right choice.</p>
+    <div class="feature-grid">
+      <% stats.expertise.forEach(function (e) { %>
+        <div class="card expertise-card">
+          <h3><span class="lang-dot" style="background: <%= e.color %>"></span> <%= e.name %></h3>
+          <p><%= e.blurb %></p>
+          <p class="expertise-why"><strong>Why:</strong> <%= e.why %></p>
+          <p class="fineprint"><%= e.projects %></p>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="repo-cards">
+  <div class="container">
+    <h2 class="report-h3">All repositories</h2>
+    <p class="section-sub">Filter by the language each project was developed in. Original work is listed first.</p>
+
+    <div class="chip-filter" id="langFilters" role="group" aria-label="Filter repositories by language">
+      <button type="button" class="chip-link filter-chip active" data-lang="all">All (<%= stats.repos.length %>)</button>
+      <% stats.languages.forEach(function (l) { %>
+        <button type="button" class="chip-link filter-chip" data-lang="<%= l.name %>"><%= l.name %> (<%= stats.langTotals[l.name] || 0 %>)</button>
+      <% }); %>
+    </div>
+    <p class="fineprint" style="margin-bottom: 26px;"><span id="repoShown"><%= stats.repos.length %></span> repositories shown</p>
+
+    <div class="feature-grid repo-grid" id="repoGrid">
+      <% stats.repos.forEach(function (r) { %>
+        <article class="card repo-card" data-lang="<%= r.langLabel %>">
+          <div class="project-top">
+            <span class="pill pill-blue"><span class="lang-dot lang-dot-sm" style="background: <%= githubColor(r.langLabel) %>"></span> <%= r.langLabel %></span>
+            <% if (r.fork) { %><span class="pill pill-yellow">fork</span><% } else { %><span class="pill pill-green">original</span><% } %>
+          </div>
+          <h3><a href="<%= r.url %>" target="_blank" rel="noopener"><%= r.name %> ↗</a></h3>
+          <p><%= r.desc || 'Source code available on GitHub.' %></p>
+          <a class="nav-card-link" href="<%= r.url %>" target="_blank" rel="noopener">View on GitHub →</a>
+        </article>
+      <% }); %>
+    </div>
+
+    <div class="center" style="margin-top: 34px;">
+      <a href="<%= stats.profileUrl %>?tab=repositories" target="_blank" rel="noopener" class="btn btn-primary btn-lg">See all repositories on GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Home","item":"<%= siteUrl %>"},
+{"@type":"ListItem","position":2,"name":"Repositories & Code","item":"<%= siteUrl %>/repositories"}]}
+</script>
+
+<%- include('partials/footer') %>

@@ -37,6 +37,7 @@ app.get('/sitemap.xml', (req, res) => {
     { loc: '/resume', freq: 'monthly' },
     { loc: '/portfolio', freq: 'monthly' },
     { loc: '/live-app', freq: 'weekly' },
+    { loc: '/repositories', freq: 'weekly' },
     { loc: '/classes', freq: 'monthly' },
     { loc: '/credentials', freq: 'monthly' },
     { loc: '/contact', freq: 'yearly' },

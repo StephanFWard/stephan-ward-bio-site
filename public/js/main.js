@@ -54,4 +54,25 @@
     { passive: true }
   );
   toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Repository language filter (/repositories)
+  const langFilters = document.getElementById('langFilters');
+  if (langFilters) {
+    const cards = document.querySelectorAll('#repoGrid .repo-card');
+    langFilters.addEventListener('click', function (e) {
+      const btn = e.target.closest('.filter-chip');
+      if (!btn) return;
+      langFilters.querySelectorAll('.filter-chip').forEach((c) => c.classList.remove('active'));
+      btn.classList.add('active');
+      const lang = btn.dataset.lang;
+      let shown = 0;
+      cards.forEach((card) => {
+        const show = lang === 'all' || card.dataset.lang === lang;
+        card.classList.toggle('hidden', !show);
+        if (show) shown += 1;
+      });
+      const counter = document.getElementById('repoShown');
+      if (counter) counter.textContent = shown;
+    });
+  }
 })();

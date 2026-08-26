@@ -3,6 +3,7 @@ const path = require('path');
 const router = express.Router();
 const db = require('../lib/db');
 const resumeData = require('../lib/resume-data');
+const githubData = require('../lib/github-data');
 
 const LIVE_APP = {
   name: 'BestBullion',
@@ -65,6 +66,12 @@ const SEO = {
       'BestBullion by Stephan Ward: a live production e-commerce store for gold & silver bullion with real-time spot pricing, transparent premiums and Stripe Checkout.',
     canonical: '/live-app',
   },
+  repositories: {
+    title: 'GitHub Repositories & Languages — Code Portfolio | Stephan Ward',
+    description:
+      'StephanFWard repositories grouped by language: pie chart of code languages, repo cards with direct links, and a plain-English breakdown of software expertise.',
+    canonical: '/repositories',
+  },
   credentials: {
     title: 'Download Links — Degrees & Certifications | Stephan Ward',
     description:
@@ -103,6 +110,16 @@ router.get('/classes', (req, res) =>
 router.get('/live-app', (req, res) =>
   res.render('live-app', { seo: SEO.liveApp, app: LIVE_APP })
 );
+
+router.get('/repositories', async (req, res, next) => {
+  try {
+    const repos = await githubData.getRepos();
+    const stats = githubData.summarize(repos);
+    res.render('repositories', { seo: SEO.repositories, stats, githubColor: githubData.colorFor });
+  } catch (err) {
+    next(err);
+  }
+});
 
 router.get('/credentials', (req, res) =>
   res.render('credentials', { seo: SEO.credentials, certifications: resumeData.certifications })

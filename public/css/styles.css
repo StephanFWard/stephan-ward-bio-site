@@ -741,3 +741,41 @@ body.js-anim .anim.revealed { opacity: 1; transform: none; }
 .resume-doc-copy p { color: var(--muted); margin: 0; }
 .resume-doc-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
 .resume-doc-meta { margin: 12px 0 0; }
+
+/* ---------- Repositories page ---------- */
+.pie-card { display: flex; gap: 40px; align-items: center; justify-content: center; flex-wrap: wrap; }
+.pie {
+  width: 230px; height: 230px; border-radius: 50%; flex-shrink: 0; position: relative;
+  box-shadow: var(--shadow), inset 0 0 0 1px rgba(32,26,77,.06);
+}
+.pie::after {
+  content: ""; position: absolute; inset: 27%; border-radius: 50%;
+  background: #fff; box-shadow: inset 0 2px 8px rgba(32,26,77,.08);
+}
+.pie-legend {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px 24px;
+}
+.pie-legend li { display: flex; align-items: center; gap: 10px; font-size: .92rem; }
+.pie-legend strong { color: var(--navy); }
+.lang-dot { width: 12px; height: 12px; border-radius: 4px; display: inline-block; flex-shrink: 0; }
+.lang-dot-sm { width: 9px; height: 9px; border-radius: 3px; margin-right: 2px; vertical-align: middle; }
+.expertise-card h3 { display: flex; align-items: center; gap: 10px; font-size: 1.02rem; margin-bottom: 10px; }
+.expertise-why { font-size: .9rem; color: var(--ink); background: var(--blue-soft); border-radius: 8px; padding: 8px 12px; }
+.expertise-card .fineprint { color: var(--blue-dark); opacity: .75; }
+.chip-filter { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 28px; }
+.filter-chip { cursor: pointer; font-family: inherit; }
+.filter-chip.active {
+  background: var(--grad-brand); color: #fff; border-color: transparent;
+  box-shadow: 0 6px 16px rgba(217,70,239,.28);
+}
+.hidden { display: none !important; }
+.repo-grid { align-items: stretch; }
+.repo-grid .repo-card { display: flex; flex-direction: column; }
+.repo-grid .repo-card p { color: var(--muted); font-size: .92rem; flex: 1; }
+.repo-grid .repo-card h3 a { color: var(--navy); font-size: 1.05rem; }
+.repo-grid .repo-card h3 a:hover { color: var(--pink); }
+
+/* Sixth explore-card signature */
+.nav-card--6 .feature-icon { background: linear-gradient(135deg, #dbeafe, #ede9fe); }
+.nav-card--6::before { background: linear-gradient(90deg, #38bdf8, #7c3aed); }
