@@ -21,12 +21,8 @@
     <h2 class="report-h3">Languages at a glance</h2>
     <p class="section-sub">Primary language across the <%= stats.ownCount %> original repositories.</p>
     <div class="card pie-card">
-      <div
-        class="pie"
-        style="background: conic-gradient(<%= stats.gradient %>)"
-        role="img"
-        aria-label="Pie chart of primary programming languages across original repositories"
-      >
+      <div class="pie-holder">
+        <canvas id="langPie" role="img" aria-label="Pie chart of primary programming languages across original repositories"></canvas>
       </div>
       <ul class="pie-legend">
         <% stats.languages.forEach(function (l) { %>
@@ -94,6 +90,58 @@
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
 {"@type":"ListItem","position":1,"name":"Home","item":"<%= siteUrl %>"},
 {"@type":"ListItem","position":2,"name":"Repositories & Code","item":"<%= siteUrl %>/repositories"}]}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+  // ---- Language pie chart (Chart.js) ----
+  (function () {
+    var el = document.getElementById('langPie');
+    if (!el || typeof Chart === 'undefined') return;
+    var langs = <%- JSON.stringify(stats.languages.map(function (l) { return { name: l.name, count: l.count, color: l.color }; })) %>;
+    new Chart(el, {
+      type: 'pie',
+      data: {
+        labels: langs.map(function (l) { return l.name; }),
+        datasets: [{
+          data: langs.map(function (l) { return l.count; }),
+          backgroundColor: langs.map(function (l) { return l.color; }),
+          borderColor: '#ffffff',
+          borderWidth: 3,
+          hoverOffset: 10,
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: { legend: { display: false }, tooltip: { callbacks: { label: function (ctx) { return ctx.label + ': ' + ctx.parsed + ' repos'; } } } },
+      },
+    });
+  })();
+
+  // ---- Language filter (self-contained) ----
+  (function () {
+    var filters = document.getElementById('langFilters');
+    if (!filters) return;
+    var cards = Array.prototype.slice.call(document.querySelectorAll('#repoGrid .repo-card'));
+    var counter = document.getElementById('repoShown');
+    function apply(lang) {
+      var shown = 0;
+      cards.forEach(function (card) {
+        var show = lang === 'all' || card.getAttribute('data-lang') === lang;
+        card.classList.toggle('hidden', !show);
+        if (show) shown += 1;
+      });
+      if (counter) counter.textContent = String(shown);
+    }
+    filters.addEventListener('click', function (e) {
+      var btn = e.target && e.target.closest ? e.target.closest('.filter-chip') : null;
+      if (!btn || !filters.contains(btn)) return;
+      filters.querySelectorAll('.filter-chip').forEach(function (c) { c.classList.remove('active'); });
+      btn.classList.add('active');
+      apply(btn.getAttribute('data-lang'));
+    });
+  })();
 </script>
 
 <%- include('partials/footer') %>
