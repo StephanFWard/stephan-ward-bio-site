@@ -22,7 +22,7 @@
         <a href="https://view.officeapps.live.com/op/view.aspx?src=<%= encodeURIComponent(siteUrl + '/files/stephanwardresume.docx') %>" target="_blank" rel="noopener" class="btn btn-primary">View document ↗</a>
         <a href="/resume-document" class="btn btn-outline">Download .docx</a>
       </div>
-      <p class="fineprint resume-doc-meta"><%= siteUrl %>/files/stephanwardresume.docx · Word · 30 KB</p>
+      <p class="fineprint resume-doc-meta"><%= siteUrl %>/files/stephanwardresume.docx · Word<% if (typeof docKb !== 'undefined' && docKb) { %> · <%= docKb %> KB<% } %></p>
     </div>
 
     <h2 class="report-h3">Technical proficiency</h2>

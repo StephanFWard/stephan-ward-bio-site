@@ -5,50 +5,56 @@
   <div class="orb orb-1" aria-hidden="true"></div>
   <div class="orb orb-3" aria-hidden="true"></div>
   <div class="container center">
-    <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Live Production App</p>
-    <h1>BestBullion</h1>
-    <p class="hero-sub hero-tagline"><%= app.tagline %></p>
+    <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> Live Production Apps</p>
+    <h1>Whiteville-Coin &amp; more</h1>
+    <p class="hero-sub hero-tagline">Four production apps running now on Render.</p>
     <div class="hero-cta app-cta">
-      <a href="<%= app.url %>" target="_blank" rel="noopener" class="btn btn-light btn-lg">Visit the live app ↗</a>
-      <a href="#features" class="btn btn-outline-light btn-lg">What it does</a>
+      <a href="https://whiteville-coin.onrender.com/" target="_blank" rel="noopener" class="btn btn-light btn-lg">Visit Whiteville-Coin ↗</a>
+      <a href="#apps" class="btn btn-outline-light btn-lg">Explore all apps</a>
     </div>
-    <p class="app-url-line">bullionstore.onrender.com · deployed on Render · running in production now</p>
+    <p class="app-url-line">whiteville-coin.onrender.com · bullionstore.onrender.com · deployed on Render</p>
   </div>
 </section>
 
-<section class="section">
-  <div class="container app-intro">
-    <h2 class="section-title">What it does</h2>
-    <p class="app-desc"><%= app.description %></p>
-    <div class="app-links">
-      <% app.links.forEach(function (l) { %>
-        <a href="<%= l.url %>" target="_blank" rel="noopener" class="chip-link"><%= l.label %> ↗</a>
-      <% }); %>
-    </div>
-  </div>
-</section>
-
-<section class="section section-alt" id="features">
+<section class="section" id="apps">
   <div class="container">
-    <h2 class="section-title">Key features in production</h2>
-    <p class="section-sub">Everything below is live and working at bullionstore.onrender.com right now.</p>
-    <div class="feature-grid feature-grid-center">
-      <% app.features.forEach(function (f) { %>
-        <div class="card feature app-feature">
-          <div class="feature-icon"><%= f.icon %></div>
-          <h3><%= f.title %></h3>
-          <p><%= f.text %></p>
+    <% apps.forEach(function (app, idx) { %>
+      <article class="card app-card" id="app-<%= app.id %>">
+        <div class="app-card-head">
+          <span class="project-icon" aria-hidden="true"><%= app.icon %></span>
+          <div>
+            <h2><%= app.name %></h2>
+            <p class="muted"><%= app.tagline %></p>
+          </div>
+          <span class="pill pill-green"><%= app.domain %></span>
         </div>
-      <% }); %>
-    </div>
+        <p class="app-desc"><%= app.description %></p>
+        <div class="app-links">
+          <% app.links.forEach(function (l) { %>
+            <a href="<%= l.url %>" target="_blank" rel="noopener" class="chip-link"><%= l.label %> ↗</a>
+          <% }); %>
+        </div>
+        <h3 class="report-h3">Key features in production</h3>
+        <p class="section-sub">Everything below is live at <%= app.domain %> right now.</p>
+        <div class="feature-grid feature-grid-center">
+          <% app.features.forEach(function (f) { %>
+            <div class="card feature app-feature">
+              <div class="feature-icon"><%= f.icon %></div>
+              <h3><%= f.title %></h3>
+              <p><%= f.text %></p>
+            </div>
+          <% }); %>
+        </div>
+      </article>
+    <% }); %>
   </div>
 </section>
 
 <section class="cta-band">
   <div class="container center">
-    <h2>Try it live — no signup to browse</h2>
-    <p>Real spot prices, real catalog, real checkout. Open BestBullion and explore the store.</p>
-    <a href="<%= app.url %>" target="_blank" rel="noopener" class="btn btn-light btn-lg">Open bullionstore.onrender.com ↗</a>
+    <h2>Start with Whiteville-Coin</h2>
+    <p>Live oracle pricing, real-time charts, and a working brokerage.</p>
+    <a href="https://whiteville-coin.onrender.com/" target="_blank" rel="noopener" class="btn btn-light btn-lg">Open whiteville-coin.onrender.com ↗</a>
   </div>
 </section>
 

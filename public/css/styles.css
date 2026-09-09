@@ -696,8 +696,14 @@ body.js-anim .anim.revealed { opacity: 1; transform: none; }
 .app-cta { justify-content: center; }
 .app-url-line { margin-top: 22px; font-size: .85rem; color: #b9a8e8; letter-spacing: .04em; }
 .app-intro { max-width: 780px; margin: 0 auto; text-align: center; }
-.app-desc { font-size: 1.08rem; line-height: 1.75; text-align: justify; }
-.app-links { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 26px; }
+.app-desc { font-size: 1rem; line-height: 1.7; color: var(--ink); margin: 14px 0 0; }
+.app-links { display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-start; margin-top: 18px; }
+.app-card { margin-bottom: 26px; padding: 30px; }
+.app-card:last-child { margin-bottom: 0; }
+.app-card-head { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 6px; }
+.app-card-head h2 { margin: 0; }
+.app-card-head .muted { margin: 2px 0 0; }
+.app-card-head .pill { margin-left: auto; }
 .chip-link {
   border: 1.5px solid var(--violet); color: var(--blue-dark); background: #fff;
   padding: 9px 18px; border-radius: 999px; font-weight: 600; font-size: .88rem;

@@ -1,17 +1,17 @@
 # Stephan Ward — Professional Bio Site
 
-A modern rebuild of [stephanfward.wordpress.com](https://stephanfward.wordpress.com/): same pages and content,
-upgraded design and navigation. Built with Node.js + Express + EJS, fully server-rendered for speed and SEO.
+Welcome to Stephan Ward's Professional Bio Site
 
 ## Pages (mirroring the original site)
 
 | Route | Original page |
 |---|---|
 | `/` | Home / About Me (bio, expertise areas) |
-| `/resume` | Résumé |
-| `/portfolio` | Portfolio |
+| `/resume` | Résumé — 9 roles incl. Whiteville-Coin + Word docx view/download |
+| `/portfolio` | Portfolio — incl. Whiteville-Coin project card |
 | `/classes` | IT Classes (completed coursework) |
-| `/live-app` | Live Production App — BestBullion (bullionstore.onrender.com) |
+| `/live-app` | Live Production Apps — Whiteville-Coin (whiteville-coin.onrender.com), BestBullion, InstantLegal AI, InstantAI |
+| `/repositories` | Repositories & Code (GitHub language chart) |
 | `/credentials` | Download Links (degrees & certifications) |
 | `/contact` | Contact (working form, messages stored to `data/db.json`) |
 
@@ -30,6 +30,7 @@ Plus `/sitemap.xml`, `/robots.txt`, a styled 404, Open Graph/Twitter meta on eve
 ```bash
 npm install
 npm start          # http://localhost:3000
+npm test           # 8 node:test assertions (resume + live apps + docx)
 ```
 
 Environment (`.env`): `PORT`, `SITE_URL` (canonical URLs; Render's `RENDER_EXTERNAL_URL` is picked up automatically),
