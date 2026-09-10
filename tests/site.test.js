@@ -24,6 +24,9 @@ describe('resume data', () => {
 
   test('uses Senior Software Engineer titles and updated dates', () => {
     const byOrg = Object.fromEntries(experience.map((j) => [j.org, j]));
+    assert.equal(byOrg['BestBullion'].role, 'Senior Software Engineer');
+    assert.equal(byOrg['BestBullion'].period, 'Jan 2026 – July 2026');
+    assert.ok(byOrg['BestBullion'].bullets.length >= 5);
     assert.equal(byOrg['National AI for Human'].role, 'Senior Software Engineer');
     assert.equal(byOrg['National AI for Human'].period, 'Jan 2026 – July 2026');
     assert.equal(byOrg['Instant Legal and Business AI Consultancy'].role, 'Senior Software Engineer');
@@ -35,6 +38,17 @@ describe('resume data', () => {
 
   test('adds a Whiteville-Coin portfolio project', () => {
     assert.ok(projects.some((p) => p.name === 'Whiteville-Coin'));
+  });
+
+  test('adds a BestBullion portfolio card (Jan 2026 – Jul 2026, Senior Software Engineer)', () => {
+    const card = projects.find((p) => p.name === 'BestBullion');
+    assert.ok(card, 'BestBullion card must exist');
+    assert.equal(card.period, 'Jan 2026 – July 2026');
+    assert.equal(card.role, 'Senior Software Engineer');
+    assert.equal(card.url, 'https://bullionstore.onrender.com/');
+    assert.match(card.summary, /spot/i);
+    assert.match(card.summary, /Stripe/i);
+    assert.ok(card.highlights.length >= 3);
   });
 });
 

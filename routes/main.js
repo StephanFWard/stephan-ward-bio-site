@@ -28,7 +28,7 @@ const SEO = {
   portfolio: {
     title: 'Portfolio — Projects by Stephan Ward',
     description:
-      'Selected projects: Whiteville-Coin, National AI for Human, Instant Legal AI, Propurty SaaS, hospital management systems and more.',
+      'Selected projects: Whiteville-Coin, BestBullion gold & silver storefront, National AI for Human, Instant Legal AI, Propurty SaaS, hospital management systems and more.',
     canonical: '/portfolio',
   },
   classes: {

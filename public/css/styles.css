@@ -328,6 +328,10 @@ input:focus, textarea:focus {
 .project-icon { font-size: 1.8rem; }
 .project-kind { font-size: .85rem; }
 .project-card .kw-cloud { margin-top: auto; padding-top: 14px; }
+.project-visit { margin: 14px 0 0; }
+.project-name-link { color: var(--navy); }
+.project-name-link:hover { color: var(--pink); }
+.chip-link-sm { padding: 7px 14px; font-size: .82rem; display: inline-block; }
 
 .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; margin-bottom: 28px; }
 .cert-badge { font-size: 1.8rem; }
