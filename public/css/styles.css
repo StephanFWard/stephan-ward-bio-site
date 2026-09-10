@@ -577,7 +577,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 /* Portfolio projects — rainbow-coded top bars & icon tiles */
 .project-card { position: relative; overflow: hidden; }
-.project-card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 5px; }
+.project-card::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 5px;
+  /* Default bar so EVERY card gets one, even beyond the numbered signatures below */
+  background: linear-gradient(90deg, #7c3aed, #38bdf8);
+}
 .project-icon {
   display: grid; place-items: center; width: 56px; height: 56px;
   border-radius: 15px; font-size: 1.6rem; flex-shrink: 0;
