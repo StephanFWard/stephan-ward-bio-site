@@ -328,10 +328,6 @@ input:focus, textarea:focus {
 .project-icon { font-size: 1.8rem; }
 .project-kind { font-size: .85rem; }
 .project-card .kw-cloud { margin-top: auto; padding-top: 14px; }
-.project-visit { margin: 14px 0 0; }
-.project-name-link { color: var(--navy); }
-.project-name-link:hover { color: var(--pink); }
-.chip-link-sm { padding: 7px 14px; font-size: .82rem; display: inline-block; }
 
 .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; margin-bottom: 28px; }
 .cert-badge { font-size: 1.8rem; }
@@ -598,6 +594,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .project-card--4 .project-icon { background: linear-gradient(135deg, #ffedd5, #ffe4e6); }
 .project-card--5::before { background: linear-gradient(90deg, #a855f7, #ec4899); }
 .project-card--5 .project-icon { background: linear-gradient(135deg, #f3e8ff, #fce7f3); }
+.project-card--6::before { background: linear-gradient(90deg, #0ea5e9, #22c55e); }
+.project-card--6 .project-icon { background: linear-gradient(135deg, #e0f2fe, #dcfce7); }
+.project-card--7::before { background: linear-gradient(90deg, #f59e0b, #ef4444); }
+.project-card--7 .project-icon { background: linear-gradient(135deg, #fef3c7, #fee2e2); }
 
 
 

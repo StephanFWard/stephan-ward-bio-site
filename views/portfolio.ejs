@@ -19,17 +19,12 @@
             <span class="project-icon"><%= p.icon %></span>
             <span class="pill pill-blue"><%= p.period %></span>
           </div>
-          <h3>
-            <% if (p.url) { %><a class="project-name-link" href="<%= p.url %>" target="_blank" rel="noopener"><%= p.name %> ↗</a><% } else { %><%= p.name %><% } %>
-          </h3>
+          <h3><%= p.name %></h3>
           <p class="muted project-kind"><%= p.kind %><% if (typeof p.role !== 'undefined' && p.role) { %> · <%= p.role %><% } %></p>
           <p><%= p.summary %></p>
           <div class="kw-cloud">
             <% p.highlights.forEach(function (h) { %><span class="pill pill-green"><%= h %></span><% }); %>
           </div>
-          <% if (p.url) { %>
-          <p class="project-visit"><a class="chip-link chip-link-sm" href="<%= p.url %>" target="_blank" rel="noopener">Visit live site ↗</a></p>
-          <% } %>
         </article>
       <% }); %>
     </div>
